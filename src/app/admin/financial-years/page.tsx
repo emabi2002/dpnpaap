@@ -143,7 +143,7 @@ export default function FinancialYearsPage() {
   const sortedYears = [...financialYears].sort((a, b) => b.year - a.year);
 
   return (
-    <AppLayout title="Financial Years">
+    <AppLayout>
       <div className="space-y-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

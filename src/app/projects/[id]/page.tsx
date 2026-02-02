@@ -372,7 +372,7 @@ export default function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <AppLayout title="Project Not Found">
+      <AppLayout>
         <div className="flex flex-col items-center justify-center py-16">
           <XCircle className="h-16 w-16 text-slate-300 mb-4" />
           <h2 className="text-xl font-semibold text-slate-900 mb-2">Project Not Found</h2>

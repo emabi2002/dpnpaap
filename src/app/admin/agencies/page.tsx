@@ -146,7 +146,7 @@ export default function AgenciesPage() {
   );
 
   return (
-    <AppLayout title="Agencies">
+    <AppLayout>
       <div className="space-y-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

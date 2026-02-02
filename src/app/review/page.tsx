@@ -147,7 +147,7 @@ export default function ReviewPage() {
   const currentFY = financialYears.find(fy => fy.status === 'open');
 
   return (
-    <AppLayout title="DNPM Review Console">
+    <AppLayout>
       <div className="space-y-6">
         {/* Header */}
         <div>

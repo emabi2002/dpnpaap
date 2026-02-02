@@ -310,7 +310,7 @@ export default function ExportPage() {
   const projectCount = exportScope === 'project' && selectedProject ? 1 : filteredProjects.length;
 
   return (
-    <AppLayout title="Export Data">
+    <AppLayout>
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div>
