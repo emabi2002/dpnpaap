@@ -28,7 +28,10 @@ import {
   User,
   Settings,
   LogOut,
+  Moon,
+  Sun,
 } from 'lucide-react';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 interface HeaderProps {
   title: string;
@@ -67,12 +70,12 @@ export function Header({ title, subtitle, tabs, showRefresh = true, onRefresh }:
   };
 
   return (
-    <header className="sticky top-0 z-30 border-b bg-white">
+    <header className="sticky top-0 z-30 border-b bg-white dark:bg-slate-900 dark:border-slate-700">
       {/* Top Bar */}
       <div className="flex h-14 items-center justify-between px-6">
         {/* Left: Page Title & Tabs */}
         <div className="flex items-center gap-8">
-          <h1 className="text-lg font-semibold text-slate-900">{title}</h1>
+          <h1 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h1>
           {tabs && (
             <nav className="flex items-center gap-1">
               {tabs.map((tab) => (
@@ -82,8 +85,8 @@ export function Header({ title, subtitle, tabs, showRefresh = true, onRefresh }:
                   className={cn(
                     'px-4 py-2 text-sm font-medium rounded-md transition-colors',
                     pathname === tab.href
-                      ? 'bg-slate-100 text-slate-900'
-                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                      ? 'bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white'
                   )}
                 >
                   {tab.label}
@@ -125,9 +128,12 @@ export function Header({ title, subtitle, tabs, showRefresh = true, onRefresh }:
             </Button>
           </Link>
 
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
           {/* Notifications */}
           <Button variant="ghost" size="icon" className="relative">
-            <Bell className="h-5 w-5 text-slate-600" />
+            <Bell className="h-5 w-5 text-slate-600 dark:text-slate-300" />
             <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-medium text-white">
               3
             </span>

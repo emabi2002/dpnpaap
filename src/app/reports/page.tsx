@@ -33,7 +33,9 @@ import {
   PieChart,
   TrendingUp,
   Users,
+  RefreshCw,
 } from 'lucide-react';
+import { Header } from '@/components/layout/header';
 import {
   projects,
   agencies,
@@ -185,33 +187,34 @@ export default function ReportsPage() {
 
   return (
     <AppLayout>
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">National Reports</h1>
-            <p className="text-slate-500">
-              Consolidated budget and cashflow analysis across all agencies
-            </p>
-          </div>
-          <div className="flex gap-3">
-            <Select value={selectedYear} onValueChange={setSelectedYear}>
-              <SelectTrigger className="w-36">
-                <SelectValue placeholder="Select Year" />
-              </SelectTrigger>
-              <SelectContent>
-                {financialYears.map(fy => (
-                  <SelectItem key={fy.id} value={fy.id}>
-                    FY {fy.year}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Button variant="outline">
-              <Download className="h-4 w-4 mr-2" />
-              Export PDF
-            </Button>
-          </div>
+      <Header
+        title="National Reports"
+        subtitle="Consolidated budget and cashflow analysis across all agencies"
+        tabs={[
+          { label: 'Overview', href: '/reports' },
+          { label: 'By Agency', href: '/reports?view=agency' },
+          { label: 'By Donor', href: '/reports?view=donor' },
+        ]}
+      />
+      <div className="p-6 space-y-6">
+        {/* Year Selector */}
+        <div className="flex gap-3">
+          <Select value={selectedYear} onValueChange={setSelectedYear}>
+            <SelectTrigger className="w-36">
+              <SelectValue placeholder="Select Year" />
+            </SelectTrigger>
+            <SelectContent>
+              {financialYears.map(fy => (
+                <SelectItem key={fy.id} value={fy.id}>
+                  FY {fy.year}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Button variant="outline">
+            <Download className="h-4 w-4 mr-2" />
+            Export PDF
+          </Button>
         </div>
 
         {/* Summary Cards */}

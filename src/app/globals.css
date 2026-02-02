@@ -21,6 +21,16 @@
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --ring: #22c55e;
+  --input: #e2e8f0;
 
   --sidebar-bg: var(--primary-dark);
   --sidebar-text: #94a3b8;
@@ -28,6 +38,35 @@
   --sidebar-hover: var(--primary);
 
   --radius: 0.5rem;
+}
+
+.dark {
+  --primary-dark: #0a1f1f;
+  --primary: #0f2a2a;
+  --primary-light: #1a3d3d;
+
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #334155;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary-foreground: #ffffff;
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --ring: #22c55e;
+  --input: #334155;
+
+  --sidebar-bg: #0a1f1f;
+  --sidebar-text: #94a3b8;
+  --sidebar-text-active: #ffffff;
+  --sidebar-hover: #0f2a2a;
 }
 
 @layer base {
@@ -78,6 +117,10 @@
 .stat-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Badge pulse animation */

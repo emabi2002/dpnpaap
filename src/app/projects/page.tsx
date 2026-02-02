@@ -31,7 +31,9 @@ import {
   Calendar,
   Loader2,
   FolderKanban,
+  RefreshCw,
 } from 'lucide-react';
+import { Header } from '@/components/layout/header';
 import Link from 'next/link';
 import {
   projects,
@@ -145,26 +147,18 @@ function ProjectsPageContent() {
 
   return (
     <AppLayout>
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">Projects</h1>
-            <p className="text-slate-500">
-              {isDNPM || isAdmin
-                ? 'Manage and review all agency project submissions'
-                : `Manage your agency's project submissions`}
-            </p>
-          </div>
-          {!isDNPM && (
-            <Link href="/projects/new">
-              <Button className="bg-emerald-600 hover:bg-emerald-700">
-                <Plus className="h-4 w-4 mr-2" />
-                New Project
-              </Button>
-            </Link>
-          )}
-        </div>
+      <Header
+        title="Projects"
+        subtitle={isDNPM || isAdmin
+          ? 'Manage and review all agency project submissions'
+          : `Manage your agency's project submissions`}
+        tabs={[
+          { label: 'All Projects', href: '/projects' },
+          { label: 'My Drafts', href: '/projects?status=draft' },
+          { label: 'Submitted', href: '/projects?status=submitted' },
+        ]}
+      />
+      <div className="p-6 space-y-6">
 
         {/* Filters */}
         <Card>
