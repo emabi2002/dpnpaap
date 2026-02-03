@@ -469,10 +469,30 @@ export function WorkplanDataProvider({ children }: WorkplanDataProviderProps) {
   );
 }
 
+// Default values for when hook is used outside provider (e.g., during SSG)
+const defaultContextValue: WorkplanDataContextType = {
+  connectionStatus: 'checking',
+  isUsingSupabase: false,
+  lastSyncTime: null,
+  getWorkplans: async () => [],
+  getWorkplanById: async () => null,
+  createWorkplan: async () => { throw new Error('Provider not available'); },
+  updateWorkplan: async () => { throw new Error('Provider not available'); },
+  deleteWorkplan: async () => false,
+  updateWorkplanStatus: async () => { throw new Error('Provider not available'); },
+  getActivities: async () => [],
+  createActivity: async () => { throw new Error('Provider not available'); },
+  updateActivity: async () => { throw new Error('Provider not available'); },
+  deleteActivity: async () => false,
+  bulkImportActivities: async () => [],
+  refreshConnection: async () => {},
+};
+
 export function useWorkplanData() {
   const context = useContext(WorkplanDataContext);
+  // Return default values if used outside provider (e.g., during SSG/SSR)
   if (!context) {
-    throw new Error('useWorkplanData must be used within a WorkplanDataProvider');
+    return defaultContextValue;
   }
   return context;
 }
