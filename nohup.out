@@ -1,0 +1,9 @@
+nohup: ignoring input
+$ next dev -H 0.0.0.0 --turbopack
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 485ms
